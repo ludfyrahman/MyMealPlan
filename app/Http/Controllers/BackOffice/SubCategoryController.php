@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\MasterMenuDiet;
 use App\Models\SiklusMenuDiet;
+use App\Models\PolaMenuDiet;
 
 class SubCategoryController extends Controller
 {
@@ -103,7 +104,8 @@ class SubCategoryController extends Controller
         $var = 'sub_category';
         $master = MasterMenuDiet::where('subcategory_id', $id)->get();
         $siklus = SiklusMenuDiet::where('subcategory_id', $id)->get();
-        return view('pages.backoffice.sub_category.detail', compact('data', 'title', 'var','subcategory', 'id', 'master', 'siklus'));
+        $pola = PolaMenuDiet::where('subcategory_id', $id)->get();
+        return view('pages.backoffice.sub_category.detail', compact('data', 'title', 'var','subcategory', 'id', 'master', 'siklus', 'pola'));
     }
 
 

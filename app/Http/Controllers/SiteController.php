@@ -8,8 +8,10 @@ use App\Models\Consultation;
 use App\Models\Article;
 use App\Models\MasterMenuDiet;
 use App\Models\SiklusMenuDiet;
+use App\Models\PolaMenuDiet;
 use App\Models\SubCategory;
-
+// import db
+use Illuminate\Support\Facades\DB;
 class SiteController extends Controller
 {
     /**
@@ -42,34 +44,57 @@ class SiteController extends Controller
         $siklus_siang = [];
         $siklus_selingan_siang = [];
         $siklus_malam = [];
-        foreach ($request->master_makan_pagi as $key => $value) {
-            // $master_pagi[$key] = $value;
 
-            MasterMenuDiet::create([
-                'subcategory_id' => $request->subcategory_id,
-                'hari' => $key+1,
-                'makan_pagi' => $value,
-                'selingan_pagi' => $request->master_selingan_pagi[$key],
-                'makan_siang' => $request->master_makan_siang[$key],
-                'selingan_siang' => $request->master_selingan_siang[$key],
-                'makan_malam' => $request->master_makan_malam[$key],
-            ]);
+        // dd($request->toArray());
+
+        try {
+            DB::beginTransaction();
+            foreach ($request->pola_makan_pagi as $key => $value) {
+
+                PolaMenuDiet::create([
+                    'subcategory_id' => $request->subcategory_id,
+                    'hari' => $key+1,
+                    'makan_pagi' => $value,
+                    'selingan_pagi' => $request->pola_selingan_pagi[$key],
+                    'makan_siang' => $request->pola_makan_siang[$key],
+                    'selingan_siang' => $request->pola_selingan_siang[$key],
+                    'makan_malam' => $request->pola_makan_malam[$key],
+                ]);
+            }
+            foreach ($request->master_makan_pagi as $key => $value) {
+
+                MasterMenuDiet::create([
+                    'subcategory_id' => $request->subcategory_id,
+                    'hari' => $key+1,
+                    'makan_pagi' => $value,
+                    'selingan_pagi' => $request->master_selingan_pagi[$key],
+                    'makan_siang' => $request->master_makan_siang[$key],
+                    'selingan_siang' => $request->master_selingan_siang[$key],
+                    'makan_malam' => $request->master_makan_malam[$key],
+                ]);
+            }
+
+            foreach ($request->siklus_makan_pagi as $key => $value) {
+                SiklusMenuDiet::create([
+                    'subcategory_id' => $request->subcategory_id,
+                    'hari' => $key+1,
+                    'makan_pagi' => $value,
+                    'selingan_pagi' => $request->siklus_selingan_pagi[$key],
+                    'makan_siang' => $request->siklus_makan_siang[$key],
+                    'selingan_siang' => $request->siklus_selingan_siang[$key],
+                    'makan_malam' => $request->siklus_makan_malam[$key],
+                ]);
+            }
+            $sub = SubCategory::find($request->subcategory_id);
+            DB::commit();
+            return redirect('category/'.$sub->category_id)->with('success', 'Berhasil menambah data!');
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollback();
+            return back()->with('failed', 'Gagal menambah data!' . $th->getMessage());
         }
 
-        foreach ($request->siklus_makan_pagi as $key => $value) {
-            SiklusMenuDiet::create([
-                'subcategory_id' => $request->subcategory_id,
-                'hari' => $key+1,
-                'makan_pagi' => $value,
-                'selingan_pagi' => $request->siklus_selingan_pagi[$key],
-                'makan_siang' => $request->siklus_makan_siang[$key],
-                'selingan_siang' => $request->siklus_selingan_siang[$key],
-                'makan_malam' => $request->siklus_makan_malam[$key],
-            ]);
-        }
-        $sub = SubCategory::find($request->subcategory_id);
 
-       return redirect('category/'.$sub->category_id)->with('success', 'Berhasil menambah data!');
     }
     public function recipe(){
         $data = Recipe::all();

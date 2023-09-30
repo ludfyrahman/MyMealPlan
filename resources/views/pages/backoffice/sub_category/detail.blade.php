@@ -32,11 +32,11 @@
                                         @for ($i=1;$i<=7;$i++)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_pagi[{{$i}}]' class="form-control">{{$master[$i-1]['makan_pagi']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_selingan_pagi[{{$i}}]' class="form-control">{{$master[$i-1]['selingan_pagi']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_siang[{{$i}}]' class="form-control">{{$master[$i-1]['makan_siang']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_selingan_siang[{{$i}}]' class="form-control">{{$master[$i-1]['selingan_siang']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_malam[{{$i}}]' class="form-control">{{$master[$i-1]['makan_malam']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_pagi[{{$i}}]' class="form-control">{{$pola[$i-1]['makan_pagi'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_selingan_pagi[{{$i}}]' class="form-control">{{$pola[$i-1]['selingan_pagi'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_siang[{{$i}}]' class="form-control">{{$pola[$i-1]['makan_siang'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_selingan_siang[{{$i}}]' class="form-control">{{$pola[$i-1]['selingan_siang'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_malam[{{$i}}]' class="form-control">{{$pola[$i-1]['makan_malam'] ?? ''}}</textarea></td>
                                             </tr>
                                         @endfor
                                     </tbody>
