@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Pasien;
+use App\Models\Consultation;
 use App\Models\SubCategory;
 
 class PasienController extends Controller
@@ -80,9 +81,10 @@ class PasienController extends Controller
     {
         //
         $data = Pasien::find($id);
-        $title = 'Detail '.$data->nama;
-        $var = 'sub_category';
-        return view('pages.backoffice.pasien.show', compact('data', 'title', 'var', 'id'));
+        $detail = Consultation::where('pasien_id', $id)->get();
+        $title = 'Data Konsultasi Pasien '.$data->nama;
+        $var = 'consultation';
+        return view('pages.backoffice.pasien.show', compact('data', 'title', 'var', 'id', 'detail'));
     }
 
     /**

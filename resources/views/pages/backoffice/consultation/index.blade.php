@@ -28,7 +28,6 @@
                             <tr>
                                 <th class="wd-15p border-bottom-0">No</th>
                                 <th class="wd-20p border-bottom-0">Nama</th>
-                                <th class="wd-20p border-bottom-0">NO RM</th>
                                 <th class="wd-25p border-bottom-0">Aksi</th>
                             </tr>
                         </thead>
@@ -36,8 +35,7 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->no_rm }}</td>
+                                    <td>{{ $item->name }}</td>
                                     <td class="d-flex">
                                         <a href="{{ route($var.'.edit', $item->id)}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-pencil"></i>
                                             Ubah</a>

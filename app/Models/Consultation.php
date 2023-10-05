@@ -11,9 +11,8 @@ class Consultation extends Model
     protected $table = 'consultation';
     protected $fillable = [
         'user_id',
-        'consultant_id',
-        'status',
-        'reservation_date',
+        'pasien_id',
+        'description',
     ];
 
     /**

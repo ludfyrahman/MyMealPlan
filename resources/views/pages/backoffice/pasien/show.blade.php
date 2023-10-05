@@ -27,32 +27,27 @@
                         <thead>
                             <tr>
                                 <th class="wd-15p border-bottom-0">No</th>
-                                <th class="wd-20p border-bottom-0">Nama</th>
+                                <th class="wd-20p border-bottom-0">Deskripsi</th>
+                                <th class="wd-20p border-bottom-0">Tanggal Konsultasi</th>
                                 <th class="wd-25p border-bottom-0">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                            @foreach ($detail as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->description }}</td>
+                                    <td>{{ $item->created_at->format('d, M Y') }}</td>
                                     <td class="d-flex">
-                                        @if($item->masterMenuDiet->count() < 1)
-                                        <a href="{{ route($var.'.show', $item->id, ['id' => $id])}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-book"></i>
-                                            Aksi</a>
-                                        @else
-                                        <a href="{{ route('subCategoryDetail', $item->id, ['id' => $id])}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-book"></i>
-                                            Detail</a>
-                                        @endif
                                         {{-- <a href="{{ route($var.'.edit', $item->id)}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-pencil"></i>
-                                            Ubah</a>
+                                            Ubah</a> --}}
                                         <form method="POST" action="{{route($var.'.destroy', $item->id)}}">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" onclick="return confirm('apakah anda yakin ingin menghapus data ??')" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i>
                                             Hapus
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
