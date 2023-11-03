@@ -32,7 +32,7 @@ class CategoryController extends Controller
             'type' => 'create'
         ];
         $var = 'category';
-        $title = 'Tambah Category';
+        $title = 'Tambah Meal Plan';
         return view('pages.backoffice.category.form', compact('data', 'title', 'var'));
     }
 

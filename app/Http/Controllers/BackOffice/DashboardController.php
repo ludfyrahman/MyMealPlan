@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Recipe;
 use App\Models\Category;
+use App\Models\Pasien;
 use App\Models\Article;
 use Illuminate\Http\Request;
-
 use Auth;
 class DashboardController extends Controller
 {
@@ -48,7 +48,10 @@ class DashboardController extends Controller
         $article = Article::all();
         $recipe = Recipe::all();
         $users = User::all();
-        return view('pages.backoffice.dashboard.index', compact('article', 'summary', 'category', 'recipe', 'users'));
+        $pasien = Pasien::all();
+        $konselor = User::where('role', 'konselor')->get();
+        $meal = Category::all();
+        return view('pages.backoffice.dashboard.index', compact('pasien','konselor', 'meal'));
     }
 
     /**
