@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = Category::all();
-        $title = 'List Category';
+        $title = 'List Meal Plan Diet';
         $var = 'category';
         return view('pages.backoffice.category.index', compact('data', 'title', 'var'));
     }
@@ -82,7 +82,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $data = Category::where('id', $id)->first();
-        $title = 'Edit data Category';
+        $title = 'Edit data Meal Plan Diet';
         $var = 'category';
         return view('pages.backoffice.category.form', compact('data', 'title', 'var'));
     }

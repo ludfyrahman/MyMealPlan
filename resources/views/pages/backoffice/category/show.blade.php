@@ -41,10 +41,10 @@
                                         <a href="{{ route($var.'.show', $item->id, ['id' => $id])}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-book"></i>
                                             Aksi</a>
                                         @else
-                                        <a href="{{ route('subCategoryDetail', $item->id, ['id' => $id])}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-book"></i>
+                                        <a href="{{ route('subCategoryDetail', $item->id, ['id' => $id])}}" class="btn btn-sm btn-success me-2"> <i class="mdi mdi-book"></i>
                                             Detail</a>
                                         @endif
-                                        {{-- <a href="{{ route($var.'.edit', $item->id)}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-pencil"></i>
+                                        <a href="{{ route($var.'.edit', $item->id)}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-pencil"></i>
                                             Ubah</a>
                                         <form method="POST" action="{{route($var.'.destroy', $item->id)}}">
                                             @method('delete')
@@ -52,7 +52,7 @@
                                             <button type="submit" onclick="return confirm('apakah anda yakin ingin menghapus data ??')" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i>
                                             Hapus
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

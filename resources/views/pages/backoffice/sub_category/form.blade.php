@@ -19,10 +19,10 @@
 
                 <div class="card-body pt-0">
                     <form class="form-horizontal"
-                        action="{{ $data->type == 'create' ? route($var.'.store', ['id' => $id]) : route($var.'.update', $data->id,['id' => $id]) }}"
+                        action="{{ $data?->type == 'create' ? route($var.'.store', ['id' => $id]) : route($var.'.update', $data->id,['id' => $id]) }}"
                         method="POST" enctype="multipart/form-data" data-parsley-validate="">
                         @csrf
-                        @if ($data->type != 'create')
+                        @if ($data?->type != 'create')
                             @method('PUT')
                         @endif
                         <div class="row">

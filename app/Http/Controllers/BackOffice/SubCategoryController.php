@@ -87,11 +87,12 @@ class SubCategoryController extends Controller
      */
     public function edit(Request $request,$id)
     {
-        $data = Category::where('id', $id)->first();
-        $title = 'Edit data Category';
+        $data = SubCategory::with('category')->where('id', $id)->first();
+        $title = 'Edit data perancangan '.$data->category->name ?? '-';
         $var_id = $request->id;
-        $var = 'category';
-        return view('pages.backoffice.sub_category.form', compact('data', 'title', 'var','var_id'));
+        $id = $data->category_id;
+        $var = 'sub_category';
+        return view('pages.backoffice.sub_category.form', compact('data', 'title', 'var','var_id', 'id'));
     }
 
 
@@ -121,11 +122,15 @@ class SubCategoryController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
+
+        $name = $request->name;
         try {
-            $data = Category::find($id);
+
+            $data = SubCategory::find($id);
             $data->name = $request->name;
             $data->save();
-            return redirect('sub_category')->with('success', 'Berhasil mengubah data!');
+            $category_id = $data->category_id;
+            return redirect('category/'. $category_id)->with('success', 'Berhasil mengubah data!');
         } catch (\Throwable $th) {
             return back()->with('failed', 'Gagal mengubah data!' . $th->getMessage());
         }

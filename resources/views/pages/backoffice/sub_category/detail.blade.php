@@ -91,6 +91,12 @@
                                 </table>
                             </div>
                         </section>
+                        <h3>Halaman Konfirmasi</h3>
+                        <section class="text-center">
+                            <h3>Apakah anda yakin ingin menyimpan data?</h3>
+                            <p>Jika anda yakin tekan tombol simpan dibawah ini</p>
+                            <button class="btn btn-primary" type="submit">Simpan</button>
+                        </section>
                     </div>
                 </form>
             </div>
