@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class StandartPorsi extends Model
 {
     use HasFactory;
-    protected $table = 'article';
+    protected $table = 'standart_porsi';
     protected $fillable = [
-        'name',
-        'description',
         'image',
     ];
-
     public function getImageAttribute($value)
     {
-        return asset('storage/article/'.$value);
+        return asset('storage/standart/'.$value);
     }
 }

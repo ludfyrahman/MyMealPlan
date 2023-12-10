@@ -16,5 +16,10 @@ class Pasien extends Model
         'tb',
         'bb',
         'riwayat_penyakit',
+        'jenis_diet',
+        'jumlah_kalori',
+        'jumlah_protein',
+        'jumlah_lemak',
+        'jumlah_karbohidrat',
     ];
 }

@@ -28,16 +28,23 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="">Nama <span class="tx-danger">*</span></label>
-                                    <input type="text" name="name"
-                                        class="form-control @error('name') parsley-error @enderror" placeholder="Nama"
-                                        value="{{ $data->name == '' ? old('name') : $data->name }}">
-                                    @error('name')
+                                    <label for="">Cover <span class="tx-danger">*</span></label>
+                                    <input type="file" name="image"
+                                        class="form-control @error('image') parsley-error @enderror" placeholder="Nama"
+                                        value="{{ $data->image == '' ? old('image') : $data->image }}" id="file"
+                                        accept="image/*"
+                                        >
+                                    @error('image')
                                         <ul class="parsley-errors-list filled" id="parsley-id-5">
                                             <li class="parsley-required">{{ $message }}</li>
                                         </ul>
                                     @enderror
-                                    <input type="hidden" name="type" value="{{$type ?? 1}}">
+                                    {{-- preview  --}}
+                                    <div class="row mt-3">
+                                        <div class="col-md-5">
+                                            <img src="{{ $data->image == '' ? asset('assets/img/placeholder.png') :$data->image }}" alt="" class="img-fluid " id="preview">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +52,6 @@
                             <div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-secondary">Batal</button>
-                                <a href="{{ route($var.'.index') }}" class="btn btn-info">Kembali</a>
                             </div>
                         </div>
                     </form>
@@ -53,4 +59,17 @@
             </div>
         </div>
     </div>
+    @push('script')
+    <script>
+        $(function(){
+            $('#file').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            });
+        })
+    </script>
+    @endpush
 @endsection

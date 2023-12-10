@@ -33,7 +33,12 @@ class PasienController extends Controller
             'bb'   => '',
             'umur'   => '',
             'riwayat_penyakit'   => '',
-            'type' => 'create'
+            'type' => 'create',
+            'jenis_diet' =>'',
+            'jumlah_kalori' =>'',
+            'jumlah_protein' =>'',
+            'jumlah_lemak' =>'',
+            'jumlah_karbohidrat' =>'',
         ];
         $var = 'pasien';
         $title = 'Tambah Pasien';
@@ -54,6 +59,11 @@ class PasienController extends Controller
             'tb'      => 'required',
             'bb'      => 'required',
             'umur'      => 'required',
+            'jenis_diet'      => 'required',
+            'jumlah_kalori'      => 'required',
+            'jumlah_protein'      => 'required',
+            'jumlah_lemak'      => 'required',
+            'jumlah_karbohidrat'      => 'required',
             'riwayat_penyakit'      => 'required',
         ]);
         try {
@@ -62,6 +72,11 @@ class PasienController extends Controller
                 'no_rm'      => $request->no_rm,
                 'tb'      => $request->tb,
                 'bb'      => $request->bb,
+                'jenis_diet'      => $request->jenis_diet,
+                'jumlah_kalori'      => $request->jumlah_kalori,
+                'jumlah_protein'      => $request->jumlah_protein,
+                'jumlah_lemak'      => $request->jumlah_lemak,
+                'jumlah_karbohidrat'      => $request->jumlah_karbohidrat,
                 'umur'      => $request->umur,
                 'riwayat_penyakit'      => $request->riwayat_penyakit,
             ]);
@@ -116,6 +131,11 @@ class PasienController extends Controller
             'tb'      => 'required',
             'bb'      => 'required',
             'umur'      => 'required',
+            'jenis_diet'      => 'required',
+            'jumlah_kalori'      => 'required',
+            'jumlah_protein'      => 'required',
+            'jumlah_lemak'      => 'required',
+            'jumlah_karbohidrat'      => 'required',
             'riwayat_penyakit'      => 'required',
         ]);
         try {
@@ -123,6 +143,11 @@ class PasienController extends Controller
             $data->nama = $request->nama;
             $data->umur = $request->umur;
             $data->no_rm = $request->no_rm;
+            $data->jenis_diet = $request->jenis_diet;
+            $data->jumlah_kalori = $request->jumlah_kalori;
+            $data->jumlah_protein = $request->jumlah_protein;
+            $data->jumlah_lemak = $request->jumlah_lemak;
+            $data->jumlah_karbohidrat = $request->jumlah_karbohidrat;
             $data->tb = $request->tb;
             $data->bb = $request->bb;
             $data->riwayat_penyakit = $request->riwayat_penyakit;

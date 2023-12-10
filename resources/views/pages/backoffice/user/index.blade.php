@@ -30,6 +30,7 @@
                                 <th class="wd-15p border-bottom-0">Username</th>
                                 <th class="wd-15p border-bottom-0">Email</th>
                                 <th class="wd-20p border-bottom-0">Role</th>
+                                <th>Status</th>
                                 <th class="wd-25p border-bottom-0">Aksi</th>
                             </tr>
                         </thead>
@@ -40,6 +41,16 @@
                                     <td>{{ $item->username }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->role }}</td>
+                                    <td>
+                                        <a href="{{url('user/action/'.$item->id.'/'. (!$item->active))}}">
+                                            @if ($item->active)
+                                                <span class="badge bg-success">Aktif</span>
+                                            @else
+                                                <span class="badge bg-danger">Tidak Aktif</span>
+                                            @endif
+                                        </a>
+
+                                    </td>
                                     <td class="d-flex"><a href="{{ url('/user/' . $item->id . '/edit') }}" class="btn btn-sm btn-info me-2"> <i
                                                 class="mdi mdi-pencil"></i>
                                             Ubah</a>

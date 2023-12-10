@@ -30,11 +30,21 @@ Route::middleware(['auth',  'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profil', [UserController::class, 'profile'])->name('profile');
     Route::get('/standart', [SiteController::class, 'standart'])->name('standart');
+    // make standart create
+    Route::get('/standart/create', [SiteController::class, 'create'])->name('standart.create');
+    // make standart store
+    Route::post('/standart/store', [SiteController::class, 'store'])->name('standart.store');
+    // make porsi route
+    Route::get('/porsi', [SiteController::class, 'porsi'])->name('porsi');
+    // make delete standart
+    Route::get('/standart/delete/{standart}', [SiteController::class, 'deleteStandart'])->name('standart.delete');
     Route::post('/profil', [UserController::class, 'updateProfile']);
     Route::post('/saveData', [SiteController::class, 'saveData'])->name('saveData');
     Route::resource('pasien', PasienController::class);
     Route::resource('consultation', ConsultationController::class);
     Route::resource('user', UserController::class);
+    // make route action user
+    Route::get('/user/action/{user}/{status}', [UserController::class, 'action'])->name('user.action');
     Route::resource('category', CategoryController::class);
     Route::resource('sub_category', SubCategoryController::class);
     Route::get('/sub_category_detail/{id}', [SubCategoryController::class, 'detail'])->name('subCategoryDetail');

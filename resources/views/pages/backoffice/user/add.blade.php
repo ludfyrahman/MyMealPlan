@@ -70,7 +70,7 @@
                                     <label for="">Role <span class="tx-danger">*</span></label>
                                     <select name="role" class="form-control @error('role') parsley-error @enderror">
                                         <option value="">Pilih Role</option>
-                                        <option value="Super Admin">Super Admin</option>
+                                        <option value="Admin">Super Admin</option>
                                         <option value="Konsultan">Konsultan</option>
                                     </select>
 

@@ -12,6 +12,7 @@ use App\Models\PolaMenuDiet;
 use App\Models\SubCategory;
 // import db
 use Illuminate\Support\Facades\DB;
+use App\Models\StandartPorsi;
 class SiteController extends Controller
 {
     /**
@@ -26,9 +27,54 @@ class SiteController extends Controller
         // return view('pages.frontend.index', compact('title'));
     }
 
+    public function porsi(){
+        $title = 'Porsi | SMK';
+        $datas = StandartPorsi::all();
+        // dd($datas);
+        return view('pages.backoffice.porsi.index', compact('title','datas'));
+    }
+
     public function standart(){
         $title = 'Standart | SMK';
-        return view('pages.backoffice.standart.index', compact('title'));
+        $datas = StandartPorsi::all();
+        // dd($datas);
+        return view('pages.backoffice.standart.index', compact('title','datas'));
+    }
+
+    public function create(){
+        $title = 'Standart | SMK';
+        $data = (object)[
+            'type' => 'create',
+            'image' => '',
+        ];
+        $var = 'standart';
+        return view('pages.backoffice.standart.form', compact('title','data', 'var'));
+    }
+    public function store(Request $request){
+        // standart store function
+        try {
+            $image = null;
+            if($request->image != null){
+                $file = $request->file('image');
+                $file->storeAs('public/standart/', $file->hashName());
+                $image      = $file->hashName();
+            }
+            StandartPorsi::create([
+                'image'      => $image,
+            ]);
+            return redirect('standart')->with('success', 'Berhasil menambah data!');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    public function deleteStandart(StandartPorsi $standart){
+        try {
+            $standart->delete();
+            return redirect('standart')->with('success', 'Berhasil menghapus data!');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     public function saveData(Request $request){

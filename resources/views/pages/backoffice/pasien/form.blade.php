@@ -80,6 +80,71 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="">Jenis Diet <span class="tx-danger">*</span></label>
+                                    <input type="text" name="jenis_diet"
+                                        class="form-control @error('jenis_diet') parsley-error @enderror" placeholder="jenis_diet"
+                                        value="{{ $data->jenis_diet == '' ? old('jenis_diet') : $data->jenis_diet }}">
+                                    @error('jenis_diet')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jumlah Kalori <span class="tx-danger">*</span></label>
+                                    <input type="text" name="jumlah_kalori"
+                                        class="form-control @error('jumlah_kalori') parsley-error @enderror" placeholder="jumlah_kalori"
+                                        value="{{ $data->jumlah_kalori == '' ? old('jumlah_kalori') : $data->jumlah_kalori }}">
+                                    @error('jumlah_kalori')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jumlah Protein <span class="tx-danger">*</span></label>
+                                    <input type="text" name="jumlah_protein"
+                                        class="form-control @error('jumlah_protein') parsley-error @enderror" placeholder="jumlah_protein"
+                                        value="{{ $data->jumlah_protein == '' ? old('jumlah_protein') : $data->jumlah_protein }}">
+                                    @error('jumlah_protein')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jumlah Lemak <span class="tx-danger">*</span></label>
+                                    <input type="text" name="jumlah_lemak"
+                                        class="form-control @error('jumlah_lemak') parsley-error @enderror" placeholder="jumlah_lemak"
+                                        value="{{ $data->jumlah_lemak == '' ? old('jumlah_lemak') : $data->jumlah_lemak }}">
+                                    @error('jumlah_lemak')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jumlah Karbohidrat <span class="tx-danger">*</span></label>
+                                    <input type="text" name="jumlah_karbohidrat"
+                                        class="form-control @error('jumlah_karbohidrat') parsley-error @enderror" placeholder="jumlah_karbohidrat"
+                                        value="{{ $data->jumlah_karbohidrat == '' ? old('jumlah_karbohidrat') : $data->jumlah_karbohidrat }}">
+                                    @error('jumlah_karbohidrat')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="">Umur <span class="tx-danger">*</span></label>
                                     <input type="text" name="umur"
                                         class="form-control @error('umur') parsley-error @enderror" placeholder="Umur"

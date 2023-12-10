@@ -32,6 +32,15 @@ class UserController extends Controller
         return view('pages.backoffice.user.add', compact('title'));
     }
 
+    public function action(User $user, $status){
+        try {
+            $user->update(['active' => $status]);
+            return redirect('user')->with('success', 'Berhasil mengubah data!');
+        } catch (\Throwable $th) {
+            return back()->with('failed', 'Gagal mengubah data!');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -67,7 +67,25 @@
             </div>
         </div>
         <!-- row closed -->
-
+        {{-- make card for article  --}}
+        <div class="container">
+            <h4>Informasi</h4>
+            @foreach ($article as $data)
+            <div class="card px-4 py-4">
+                {{-- <a href="{{route('article.show', $data->id)}}"> --}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{$data->image}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="text-dark text-capitalize">{{$data->name}}</h4>
+                            <p class="text-dark">{{$data->description}}</p>
+                        </div>
+                    </div>
+                {{-- </a> --}}
+            </div>
+            @endforeach
+        </div>
         <!-- row close -->
         <!-- /row -->
     </div>

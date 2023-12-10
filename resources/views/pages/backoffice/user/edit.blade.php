@@ -66,8 +66,8 @@
                                     <label for="">Role <span class="tx-danger">*</span></label>
                                     <select name="role" class="form-control @error('role') parsley-error @enderror">
                                         <option value="">Pilih Role</option>
-                                        <option {{ $data->role == 'Super Admin' ? 'selected' : '' }} value="Super Admin">
-                                            Super Admin</option>
+                                        <option {{ $data->role == 'Admin' ? 'selected' : '' }} value="Admin">
+                                            Admin</option>
                                         <option {{ $data->role == 'Konsultan' ? 'selected' : '' }} value="Konsultan">Konsultan</option>
 
                                     </select>

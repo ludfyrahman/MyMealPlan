@@ -10,12 +10,16 @@ use App\Models\SubCategory;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Category::all();
-        $title = 'List Meal Plan Diet';
+        $type = $request->type ?? 1;
+        $data = Category::where('type', $type)->get();
+        $title = 'List Meal Plan ';
+        if($type == 1){
+            $title .= ' Diet';
+        }
         $var = 'category';
-        return view('pages.backoffice.category.index', compact('data', 'title', 'var'));
+        return view('pages.backoffice.category.index', compact('data', 'title', 'var','type'));
     }
 
     /**
@@ -23,7 +27,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $data = (object)[
             'name'      => '',
@@ -31,9 +35,10 @@ class CategoryController extends Controller
             'link'   => '',
             'type' => 'create'
         ];
+        $type = $request->type ?? 1;
         $var = 'category';
         $title = 'Tambah Meal Plan';
-        return view('pages.backoffice.category.form', compact('data', 'title', 'var'));
+        return view('pages.backoffice.category.form', compact('data', 'title', 'var', 'type'));
     }
 
     /**
@@ -50,8 +55,9 @@ class CategoryController extends Controller
         try {
             Category::create([
                 'name'      => $request->name,
+                'type'      => $request->type,
             ]);
-            return redirect('category')->with('success', 'Berhasil menambah data!');
+            return redirect(route('category.index', ['type' => $request->type]))->with('success', 'Berhasil menambah data!');
         } catch (\Throwable $th) {
             return back()->with('failed', 'Gagal menambah data!' . $th->getMessage());
         }
@@ -82,7 +88,12 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $data = Category::where('id', $id)->first();
-        $title = 'Edit data Meal Plan Diet';
+        $title = 'Edit data Meal Plan';
+        $type = $data->type;
+        if($type == 1){
+            $title .= ' Diet';
+        }
+
         $var = 'category';
         return view('pages.backoffice.category.form', compact('data', 'title', 'var'));
     }
@@ -103,7 +114,7 @@ class CategoryController extends Controller
             $data = Category::find($id);
             $data->name = $request->name;
             $data->save();
-            return redirect('category')->with('success', 'Berhasil mengubah data!');
+            return redirect(route('category.index', ['type' => $data->type]))->with('success', 'Berhasil mengubah data!');
         } catch (\Throwable $th) {
             return back()->with('failed', 'Gagal mengubah data!' . $th->getMessage());
         }

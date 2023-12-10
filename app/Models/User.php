@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'status',
         'password',
+        'active'
     ];
 
     public function user()
