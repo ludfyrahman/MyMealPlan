@@ -22,27 +22,27 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $title = 'HomePage | SMK';
+        $title = 'HomePage | MyMealPlan';
         return redirect('/login');
         // return view('pages.frontend.index', compact('title'));
     }
 
     public function porsi(){
-        $title = 'Porsi | SMK';
+        $title = 'Porsi | MyMealPlan';
         $datas = StandartPorsi::all();
         // dd($datas);
         return view('pages.backoffice.porsi.index', compact('title','datas'));
     }
 
     public function standart(){
-        $title = 'Standart | SMK';
+        $title = 'Standart | MyMealPlan';
         $datas = StandartPorsi::all();
         // dd($datas);
         return view('pages.backoffice.standart.index', compact('title','datas'));
     }
 
     public function create(){
-        $title = 'Standart | SMK';
+        $title = 'Standart | MyMealPlan';
         $data = (object)[
             'type' => 'create',
             'image' => '',

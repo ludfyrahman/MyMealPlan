@@ -106,6 +106,7 @@ class SubCategoryController extends Controller
         $master = MasterMenuDiet::where('subcategory_id', $id)->get();
         $siklus = SiklusMenuDiet::where('subcategory_id', $id)->get();
         $pola = PolaMenuDiet::where('subcategory_id', $id)->get();
+        // dd($pola->toArray(), $master->toArray(), $siklus->toArray());
         return view('pages.backoffice.sub_category.detail', compact('data', 'title', 'var','subcategory', 'id', 'master', 'siklus', 'pola'));
     }
 

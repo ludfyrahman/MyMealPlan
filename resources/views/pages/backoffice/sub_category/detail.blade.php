@@ -29,16 +29,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i=1;$i<=7;$i++)
+                                        @foreach ($pola as $index => $itemPola)
+                                            @php
+                                                $i = $index+1;
+                                            @endphp
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_pagi[{{$i}}]' class="form-control">{{$pola[$i-1]['makan_pagi'] ?? ''}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='pola_selingan_pagi[{{$i}}]' class="form-control">{{$pola[$i-1]['selingan_pagi'] ?? ''}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_siang[{{$i}}]' class="form-control">{{$pola[$i-1]['makan_siang'] ?? ''}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='pola_selingan_siang[{{$i}}]' class="form-control">{{$pola[$i-1]['selingan_siang'] ?? ''}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_malam[{{$i}}]' class="form-control">{{$pola[$i-1]['makan_malam'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_pagi[{{$i}}]' class="form-control">{{$itemPola['makan_pagi'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_selingan_pagi[{{$i}}]' class="form-control">{{$itemPola['selingan_pagi'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_siang[{{$i}}]' class="form-control">{{$itemPola['makan_siang'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_selingan_siang[{{$i}}]' class="form-control">{{$itemPola['selingan_siang'] ?? ''}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='pola_makan_malam[{{$i}}]' class="form-control">{{$itemPola['makan_malam'] ?? ''}}</textarea></td>
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -53,16 +56,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i=1;$i<=7;$i++)
+                                        @foreach ($master as $index => $itemMaster)
+                                            @php
+                                                $i = $index+1;
+                                            @endphp
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_pagi[{{$i}}]' class="form-control">{{$master[$i-1]['makan_pagi']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_selingan_pagi[{{$i}}]' class="form-control">{{$master[$i-1]['selingan_pagi']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_siang[{{$i}}]' class="form-control">{{$master[$i-1]['makan_siang']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_selingan_siang[{{$i}}]' class="form-control">{{$master[$i-1]['selingan_siang']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_malam[{{$i}}]' class="form-control">{{$master[$i-1]['makan_malam']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_pagi[{{$i}}]' class="form-control">{{$itemMaster['makan_pagi']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='master_selingan_pagi[{{$i}}]' class="form-control">{{$itemMaster['selingan_pagi']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_siang[{{$i}}]' class="form-control">{{$itemMaster['makan_siang']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='master_selingan_siang[{{$i}}]' class="form-control">{{$itemMaster['selingan_siang']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='master_makan_malam[{{$i}}]' class="form-control">{{$itemMaster['makan_malam']}}</textarea></td>
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -77,16 +83,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i=1;$i<=7;$i++)
+                                        @foreach ($siklus as $index => $itemSiklus)
+                                            @php
+                                                $i = $index+1;
+                                            @endphp
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td><textarea rows="8" cols="5" type="text" name='siklus_makan_pagi[{{$i}}]' class="form-control">{{$siklus[$i-1]['makan_pagi']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='siklus_selingan_pagi[{{$i}}]' class="form-control">{{$siklus[$i-1]['selingan_pagi']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='siklus_makan_siang[{{$i}}]' class="form-control">{{$siklus[$i-1]['makan_siang']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='siklus_selingan_siang[{{$i}}]' class="form-control">{{$siklus[$i-1]['selingan_siang']}}</textarea></td>
-                                                <td><textarea rows="8" cols="5" type="text" name='siklus_makan_malam[{{$i}}]' class="form-control">{{$siklus[$i-1]['makan_malam']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='siklus_makan_pagi[{{$i}}]' class="form-control">{{$itemSiklus['makan_pagi']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='siklus_selingan_pagi[{{$i}}]' class="form-control">{{$itemSiklus['selingan_pagi']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='siklus_makan_siang[{{$i}}]' class="form-control">{{$itemSiklus['makan_siang']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='siklus_selingan_siang[{{$i}}]' class="form-control">{{$itemSiklus['selingan_siang']}}</textarea></td>
+                                                <td><textarea rows="8" cols="5" type="text" name='siklus_makan_malam[{{$i}}]' class="form-control">{{$itemSiklus['makan_malam']}}</textarea></td>
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

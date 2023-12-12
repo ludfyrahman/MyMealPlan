@@ -136,10 +136,10 @@
         $(function(){
             $('.btn-pola').click(function(){
                 var count_row_pola = $('.row-pola').length;
-                var html = '<tr class="row-pola"><td>'+(count_row_pola+1)+'</td><td><textarea type="text" name="pola_makan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_selingan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_makan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_selingan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_makan_malam[]" class="form-control"></textarea></td></tr>';
+                var html = '<tr class="row-pola"><td>'+(count_row_pola+1)+'</td><td><textarea type="text" name="pola_makan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_selingan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_makan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_selingan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="pola_makan_malam[]" class="form-control"></textarea></td><td><button type="button" class="btn btn-danger btn-sm btn-delete-pola"><i class="fas fa-trash"></i></button></td></tr>';
                 $('.row-pola:last').after(html);
             });
-            $('.btn-delete-pola').click(function(){
+            $('body').on('click', '.btn-delete-pola',function(){
                 var count_row_pola = $('.row-pola').length;
                 if(count_row_pola==1){
                     alert('Tidak bisa menghapus baris terakhir');
@@ -152,10 +152,10 @@
             });
             $('.btn-master').click(function(){
                 var count_row_master = $('.row-master').length;
-                var html = '<tr class="row-master"><td>'+(count_row_master+1)+'</td><td><textarea type="text" name="master_makan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="master_selingan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="master_makan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="master_selingan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="master_makan_malam[]" class="form-control"></textarea></td></tr>';
+                var html = '<tr class="row-master"><td>'+(count_row_master+1)+'</td><td><textarea type="text" name="master_makan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="master_selingan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="master_makan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="master_selingan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="master_makan_malam[]" class="form-control"></textarea></td><td><button type="button" class="btn btn-danger btn-sm btn-delete-master"><i class="fas fa-trash"></i></button></td></tr>';
                 $('.row-master:last').after(html);
             });
-            $('.btn-delete-master').click(function(){
+            $('body').on('click', '.btn-delete-master',function(){
                 var count_row_master = $('.row-master').length;
                 if(count_row_master==1){
                     alert('Tidak bisa menghapus baris terakhir');
@@ -168,10 +168,10 @@
             });
             $('.btn-siklus').click(function(){
                 var count_row_siklus = $('.row-siklus').length;
-                var html = '<tr class="row-siklus"><td>'+(count_row_siklus+1)+'</td><td><textarea type="text" name="siklus_makan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_selingan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_makan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_selingan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_makan_malam[]" class="form-control"></textarea></td></tr>';
+                var html = '<tr class="row-siklus"><td>'+(count_row_siklus+1)+'</td><td><textarea type="text" name="siklus_makan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_selingan_pagi[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_makan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_selingan_siang[]" class="form-control"></textarea></td><td><textarea type="text" name="siklus_makan_malam[]" class="form-control"></textarea></td><td><button type="button" class="btn btn-danger btn-sm btn-delete-siklus"><i class="fas fa-trash"></i></button></td></tr>';
                 $('.row-siklus:last').after(html);
             });
-            $('.btn-delete-siklus').click(function(){
+            $('body').on('click', '.btn-delete-siklus',function(){
                 var count_row_siklus = $('.row-siklus').length;
                 if(count_row_siklus==1){
                     alert('Tidak bisa menghapus baris terakhir');
