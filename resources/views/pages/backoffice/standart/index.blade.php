@@ -17,6 +17,7 @@
             @foreach ($datas as $data)
                 <div class="row mt-2">
                     <div class="col-11">
+                        <h5>{{$data->name}}</h5>
                         <img src="{{$data->image}}" class="w-100" alt="">
                     </div>
                     <div class="col-1 text-start ">
@@ -28,6 +29,7 @@
                         @endif
                     </div>
                 </div>
+                <hr>
             @endforeach
 
         </div>

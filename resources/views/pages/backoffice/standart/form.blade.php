@@ -26,7 +26,20 @@
                             @method('PUT')
                         @endif
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Nama <span class="tx-danger">*</span></label>
+                                    <input type="text" name="name"
+                                        class="form-control @error('name') parsley-error @enderror" placeholder="Nama"
+                                        value="{{ $data->name == '' ? old('name') : $data->name }}" id="name">
+                                    @error('name')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Cover <span class="tx-danger">*</span></label>
                                     <input type="file" name="image"

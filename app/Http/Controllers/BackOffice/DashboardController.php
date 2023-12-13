@@ -49,7 +49,7 @@ class DashboardController extends Controller
         $recipe = Recipe::all();
         $users = User::all();
         $pasien = Pasien::all();
-        $konselor = User::where('role', 'konselor')->get();
+        $konselor = User::where('role', 'Konsultan')->get();
         $meal = Category::all();
         return view('pages.backoffice.dashboard.index', compact('pasien','konselor', 'meal','article'));
     }

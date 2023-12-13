@@ -46,6 +46,7 @@ class SiteController extends Controller
         $data = (object)[
             'type' => 'create',
             'image' => '',
+            'name' => ''
         ];
         $var = 'standart';
         return view('pages.backoffice.standart.form', compact('title','data', 'var'));
@@ -61,6 +62,7 @@ class SiteController extends Controller
             }
             StandartPorsi::create([
                 'image'      => $image,
+                'name'       => $request->name,
             ]);
             return redirect('standart')->with('success', 'Berhasil menambah data!');
         } catch (\Throwable $th) {

@@ -11,6 +11,7 @@ class StandartPorsi extends Model
     protected $table = 'standart_porsi';
     protected $fillable = [
         'image',
+        'name',
     ];
     public function getImageAttribute($value)
     {
