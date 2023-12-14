@@ -41,6 +41,12 @@
                                     <td class="d-flex">
                                         {{-- <a href="{{ route($var.'.edit', $item->id)}}" class="btn btn-sm btn-info me-2"> <i class="mdi mdi-pencil"></i>
                                             Ubah</a> --}}
+                                            <a href="{{route($var.'.print', $item->id)}}" target="_blank">
+                                                <button type="button" class="btn btn-sm btn-info me-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">
+                                                    <i class="mdi mdi-printer"></i>
+                                                    Cetak
+                                                </button>
+                                            </a>
                                         <form method="POST" action="{{route($var.'.destroy', $item->id)}}">
                                             @method('delete')
                                             @csrf

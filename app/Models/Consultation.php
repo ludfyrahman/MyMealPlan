@@ -13,6 +13,7 @@ class Consultation extends Model
         'user_id',
         'pasien_id',
         'description',
+        'subcategory_id'
     ];
 
     /**
@@ -23,5 +24,16 @@ class Consultation extends Model
     public function category()
     {
         return $this->hasMany(RecipeCategory::class, 'recipe_id', 'id');
+    }
+
+    public function pasien(){
+        return $this->belongsTo(Pasien::class);
+    }
+    public function subcategory(){
+        return $this->belongsTo(SubCategory::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

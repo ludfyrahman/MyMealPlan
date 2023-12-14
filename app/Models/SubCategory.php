@@ -26,4 +26,8 @@ class SubCategory extends Model
     public function siklusMenuDiet(){
         return $this->hasMany(SiklusMenuDiet::class, 'subcategory_id', 'id');
     }
+
+    public function polaMenuDiet(){
+        return $this->hasMany(PolaMenuDiet::class, 'subcategory_id', 'id');
+    }
 }

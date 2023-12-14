@@ -33,13 +33,15 @@ class ConsultationController extends Controller
             'pasien_id'     => $id,
             'user_id'       => '',
             'description'   => '',
-            'type'          => 'create'
+            'type'          => 'create',
+            'subcategory_id'=> ''
         ];
         $var = 'consultation';
         $title = 'Tambah Konsultasi';
         $pasien = Pasien::all();
-        $konselor = User::all();
-        return view('pages.backoffice.consultation.form', compact('data','pasien','konselor', 'title', 'var', 'id'));
+        $menus = SubCategory::with('category')->get();
+        $konselor = User::where('role', 'Konsultan')->get();
+        return view('pages.backoffice.consultation.form', compact('data','pasien','konselor', 'title', 'var', 'id','menus'));
     }
 
     /**
@@ -54,6 +56,7 @@ class ConsultationController extends Controller
             'pasien_id'      => 'required',
             'user_id'      => 'required',
             'description'      => 'required',
+            'subcategory_id'      => 'required',
         ]);
         $id = $request->id;
         try {
@@ -61,6 +64,7 @@ class ConsultationController extends Controller
                 'pasien_id'      => $request->pasien_id,
                 'user_id'        => $request->user_id,
                 'description'        => $request->description,
+                'subcategory_id'        => $request->subcategory_id,
             ]);
             return redirect('pasien/'. $id)->with('success', 'Berhasil menambah data!');
         } catch (\Throwable $th) {

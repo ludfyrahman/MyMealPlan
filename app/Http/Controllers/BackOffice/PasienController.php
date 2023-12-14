@@ -158,6 +158,13 @@ class PasienController extends Controller
         }
     }
 
+    public function print(Consultation $consultation){
+        $data = $consultation;
+        $title = 'Print Data Pasien';
+        $var = 'pasien';
+        return view('pages.backoffice.pasien.print', compact('data', 'title', 'var'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

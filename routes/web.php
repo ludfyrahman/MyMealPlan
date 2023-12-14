@@ -41,6 +41,8 @@ Route::middleware(['auth',  'verified'])->group(function () {
     Route::post('/profil', [UserController::class, 'updateProfile']);
     Route::post('/saveData', [SiteController::class, 'saveData'])->name('saveData');
     Route::resource('pasien', PasienController::class);
+    // route print pasien
+    Route::get('/pasien/print/{consultation}', [PasienController::class, 'print'])->name('consultation.print');
     Route::resource('consultation', ConsultationController::class);
     Route::resource('user', UserController::class);
     // make route action user

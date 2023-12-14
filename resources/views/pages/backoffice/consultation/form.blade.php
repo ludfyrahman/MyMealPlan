@@ -26,7 +26,7 @@
                             @method('PUT')
                         @endif
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Pasien <span class="tx-danger">*</span></label>
                                     <select name="pasien_id" class="form-control" id="" required>
@@ -42,7 +42,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Konselor <span class="tx-danger">*</span></label>
                                     <select name="user_id" class="form-control" id="" required>
@@ -52,6 +52,22 @@
                                         @endforeach
                                     </select>
                                     @error('user_id')
+                                        <ul class="parsley-errors-list filled" id="parsley-id-5">
+                                            <li class="parsley-required">{{ $message }}</li>
+                                        </ul>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Menu <span class="tx-danger">*</span></label>
+                                    <select name="subcategory_id" class="form-control" id="" required>
+                                        <option value="">Pilih Menu</option>
+                                        @foreach ($menus as $item)
+                                            <option value="{{ $item->id }}" @if ($data->subcategory_id == $item->id) selected @endif>{{ ($item->category->name ?? '-' ).' - '.$item->name }} </option>
+                                        @endforeach
+                                    </select>
+                                    @error('subcategory_id')
                                         <ul class="parsley-errors-list filled" id="parsley-id-5">
                                             <li class="parsley-required">{{ $message }}</li>
                                         </ul>
