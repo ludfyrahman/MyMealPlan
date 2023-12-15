@@ -100,7 +100,11 @@
         </tr>
     </table>
     <h4>Menu</h4>
-    <p>Perancangan <b>{{$data->subcategory->category->type == 1 ? 'Meal Plan' : 'Meal Plan Diet'}}</b> -> <b>{{$data->subcategory->category->name ?? '-'}}</b> -> Detail Perancangan <b>{{$data->subcategory->name ?? '-'}}</b></p>
+    @if($data->subcategory)
+    <p>Perancangan <b>{{$data->subcategory?->category->type == 1 ? 'Meal Plan' : 'Meal Plan Diet'}}</b> -> <b>{{$data->subcategory->category->name ?? '-'}}</b> -> Detail Perancangan <b>{{$data->subcategory->name ?? '-'}}</b></p>
+    @else
+    <i>Meal Plan belum dipilih</i>
+    @endif
     <h4>Pola Menu Diet</h4>
     <table class="w-full table" border="1">
         <thead>
@@ -114,7 +118,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data->subcategory->polaMenuDiet as $item)
+            @foreach (($data->subcategory?->polaMenuDiet ?? []) as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->makan_pagi ?? '-'}}</td>
@@ -124,6 +128,11 @@
                     <td>{{$item->makan_malam ?? '-'}}</td>
                 </tr>
             @endforeach
+            @empty(($data->subcategory?->siklusMenuDiet ?? []))
+                <tr>
+                    <td colspan="6" class='text-center'>Tidak ada data</td>
+                </tr>
+            @endempty
         </tbody>
     </table>
     <h4>Master Menu Diet</h4>
@@ -139,7 +148,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data->subcategory->masterMenuDiet as $item)
+            @foreach (($data->subcategory?->masterMenuDiet ?? []) as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->makan_pagi ?? '-'}}</td>
@@ -149,6 +158,11 @@
                     <td>{{$item->makan_malam ?? '-'}}</td>
                 </tr>
             @endforeach
+            @empty(($data->subcategory?->siklusMenuDiet ?? []))
+                <tr>
+                    <td colspan="6" class='text-center'>Tidak ada data</td>
+                </tr>
+            @endempty
         </tbody>
     </table>
     <h4>Siklus Menu Diet</h4>
@@ -164,7 +178,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data->subcategory->siklusMenuDiet as $item)
+            @foreach (($data->subcategory?->siklusMenuDiet ?? []) as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->makan_pagi ?? '-'}}</td>
@@ -174,6 +188,11 @@
                     <td>{{$item->makan_malam ?? '-'}}</td>
                 </tr>
             @endforeach
+            @empty(($data->subcategory?->siklusMenuDiet ?? []))
+                <tr>
+                    <td colspan="6" class='text-center'>Tidak ada data</td>
+                </tr>
+            @endempty
         </tbody>
     </table>
 </body>
