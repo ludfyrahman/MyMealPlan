@@ -24,6 +24,9 @@
         .text-center{
             text-align: center;
         }
+        .text-italic{
+            font-style: italic;
+        }
         @media print{
             button{
                 display: none;
@@ -130,7 +133,7 @@
             @endforeach
             @empty(($data->subcategory?->siklusMenuDiet ?? []))
                 <tr>
-                    <td colspan="6" class='text-center'>Tidak ada data</td>
+                    <td colspan="6" class='text-center text-italic'>Tidak ada data</td>
                 </tr>
             @endempty
         </tbody>
@@ -160,7 +163,7 @@
             @endforeach
             @empty(($data->subcategory?->siklusMenuDiet ?? []))
                 <tr>
-                    <td colspan="6" class='text-center'>Tidak ada data</td>
+                    <td colspan="6" class='text-center text-italic'>Tidak ada data</td>
                 </tr>
             @endempty
         </tbody>
@@ -190,7 +193,7 @@
             @endforeach
             @empty(($data->subcategory?->siklusMenuDiet ?? []))
                 <tr>
-                    <td colspan="6" class='text-center'>Tidak ada data</td>
+                    <td colspan="6" class='text-center text-italic'>Tidak ada data</td>
                 </tr>
             @endempty
         </tbody>
