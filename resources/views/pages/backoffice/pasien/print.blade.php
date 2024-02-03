@@ -97,6 +97,11 @@
             <td>{{$data->pasien->jumlah_karbohidrat ?? '-'}}</td>
         </tr>
         <tr>
+            <td>Deskripsi</td>
+            <td>:</td>
+            <td>{{$data->description ?? '-'}}</td>
+        </tr>
+        <tr>
             <td>Konselor</td>
             <td>:</td>
             <td>{{$data->user->username ?? ''}}</td>
